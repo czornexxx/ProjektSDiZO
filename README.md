@@ -1,5 +1,4 @@
 ProjektSDiZO
 ============
-
-testuje student 707
+rudzik z studenty707
 Tutaj wpisujemy zmiany, problemy itp.
