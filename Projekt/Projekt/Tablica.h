@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
 #pragma once
@@ -18,5 +18,7 @@ public:
 	int getSize();
 	bool remove(int idx);
 	void wypisz();
+	void wczytaj();
+	bool Find(int);
 };
 
