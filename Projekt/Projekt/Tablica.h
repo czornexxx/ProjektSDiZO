@@ -17,6 +17,8 @@ public:
 	int getValue(int idx);
 	int getSize();
 	bool remove(int idx);
+	bool sprawdz(int Value);
+	int getPozycja(int Value);
 	void wypisz();
 };
 

@@ -10,7 +10,9 @@ int main(){
 	for(int i=0; i<20000; i++)
 		t->add(i);
 
-	//t->wypisz();
+	cout << "Doda³em wszystkie 20000 elementow" << endl;
+
+	cout << t->getPozycja(1223) << endl;
 
 	system("Pause");
 	return 0;

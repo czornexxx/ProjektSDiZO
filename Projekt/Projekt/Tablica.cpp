@@ -60,6 +60,8 @@ bool Tablica::remove(int idx){
 
 		for(int i=idx; i<size; i++)			
 			tmp[i] = tablica[i+1];
+		
+		delete[] tablica;
 
 		tablica = tmp; 
 
@@ -73,4 +75,25 @@ void Tablica::wypisz(){
 
 	for(int i=0; i<size; i++)
 		cout << tablica[i] << endl;
+}
+
+bool Tablica::sprawdz(int Value){
+
+	for(int i=0; i<size; i++)	//Sprawdzanie czy jest wartoœæ w tablicy
+		
+		if(tablica[i] == Value){
+			return true;
+		}
+	
+	return false;	// jeœli nie znalaz³ wartoœci zwróæ false;
+}
+
+int Tablica::getPozycja(int Value){
+
+	for(int i=0; i<size; i++)		// szukanie wartoœci i zwracanie pozycji na której jest.
+		
+		if(tablica[i] == Value)
+			return i;
+
+	return NULL;	
 }
