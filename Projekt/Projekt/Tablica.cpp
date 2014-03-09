@@ -1,5 +1,5 @@
 #include "Tablica.h"
-
+#include <string>
 Tablica::Tablica(){
 
 	tablica = new int[2];
@@ -96,4 +96,44 @@ int Tablica::getPozycja(int Value){
 			return i;
 
 	return NULL;	
+}
+
+void Tablica::wczytaj()
+{
+	Tablica *t = new Tablica();
+	int *tab;
+	int i=0;
+	fstream plik;
+	string sizee;
+	
+	plik.open( "liczby.txt" );
+	getline(plik, sizee);
+	size=atoi(sizee.c_str());
+	tab=new int[size];
+
+	while( !plik.eof() )
+	{
+   
+		plik>>tablica[i];
+		/*t->add(tab[i]);*/
+		i++;
+	}
+plik.close();
+
+
+
+}
+
+bool Tablica::Find(int a)
+{
+	int t=0;
+	for(int i=0; i<size; i++)
+		if(tablica[i]==a)
+			t++;
+	if(t>0)
+		return true;
+	else
+		return false;
+
+			
 }

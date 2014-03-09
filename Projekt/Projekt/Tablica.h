@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
 #pragma once
@@ -20,5 +20,7 @@ public:
 	bool sprawdz(int Value);
 	int getPozycja(int Value);
 	void wypisz();
+	void wczytaj();
+	bool Find(int);
 };
 
