@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Tablica.h"
 #include "Time.h"
+#include "Heap.h"
 
 using namespace std;
 
