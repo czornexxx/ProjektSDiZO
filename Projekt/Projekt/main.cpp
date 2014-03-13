@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Tablica.h"
+#include "Lista.h"
 #include "Time.h"
 #include "Heap.h"
 
@@ -9,9 +10,7 @@ int main(){
 	//char c,ch,cch;
 	//Time A;
 	//Tablica *t = new Tablica();
-
-
-
+	
 	//do{
 	//	cout<<"Wybierz strukture: \n";
 	//	cout<<"1 - tablica\n";

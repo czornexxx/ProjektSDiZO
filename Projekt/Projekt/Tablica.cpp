@@ -153,16 +153,3 @@ void Tablica::wczytaj()
 plik.close();
 }
 
-bool Tablica::Find(int a)
-{
-	int t=0;
-	for(int i=0; i<size; i++)
-		if(tablica[i]==a)
-			t++;
-	if(t>0)
-		return true;
-	else
-		return false;
-
-			
-}
