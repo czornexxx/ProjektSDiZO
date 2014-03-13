@@ -64,13 +64,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="Heap.cpp" />
+=======
+    <ClCompile Include="Lista.cpp" />
+>>>>>>> 95ccc0eda5077f312e3cd23032f4faddced970b7
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tablica.cpp" />
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="Heap.h" />
+=======
+    <ClInclude Include="Lista.h" />
+>>>>>>> 95ccc0eda5077f312e3cd23032f4faddced970b7
     <ClInclude Include="Tablica.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>
