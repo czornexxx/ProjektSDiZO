@@ -14,6 +14,7 @@ public:
 	~Tablica(void);
 
 	void add(int Value);
+	bool add(int Value, int idx);
 	int getValue(int idx);
 	int getSize();
 	bool remove(int idx);
