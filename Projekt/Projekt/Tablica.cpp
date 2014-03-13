@@ -2,12 +2,8 @@
 #include <string>
 Tablica::Tablica(){
 
-	tablica = new int[2];
-	
-	tablica[0] = 5;
-	tablica[1] = 10;
-	
-	size = 2; 
+	tablica = new int[0];
+	size = 0;
 }
 
 
@@ -33,6 +29,33 @@ void Tablica::add(int Value){
 	size ++;
 }
 
+bool Tablica::add(int Value, int idx){
+
+	idx --;			// -1 bo tablica od 0
+
+	if(idx < 0 || idx > size+1)			// sprawdzenie czy index jest w tablicy
+		return false;
+
+	int *tmp = new int[size + 1];		// tworzenie nowej wiekszej tablicy
+
+	for(int i=0; i<idx; i++)			// przekopiowanie wartoœci do miejsca wstawienia elementu
+		tmp[i] = tablica[i];
+
+	tmp[idx] = Value;					// Dodanie nowej wartoœci
+
+	for(int i=idx; i<size; i++)			// przekopiowanie reszty wartoœci
+		tmp[i+1] = tablica[i];
+
+	delete[] tablica;					// Kasowanie starej tablicy
+	
+	size ++;							// Zwiekszenie iloœci elementow w tablicy
+	
+	tablica = tmp;
+
+
+	return true;
+}
+
 int Tablica::getValue(int idx){
 
 	if(idx > 0 && idx <= size)
@@ -47,6 +70,7 @@ int Tablica::getSize(){
 
 bool Tablica::remove(int idx){
 
+	idx --;
 	// sprawdzenie czy idx jest >=0 oraz czy nie jest wiekszy niz elementy tablicy
 	if(idx >= 0 && idx < this->size){
 
@@ -100,28 +124,33 @@ int Tablica::getPozycja(int Value){
 
 void Tablica::wczytaj()
 {
-	Tablica *t = new Tablica();
-	int *tab;
-	int i=0;
+
+	int poprzedniRozmiar=size;
 	fstream plik;
 	string sizee;
 	
 	plik.open( "liczby.txt" );
 	getline(plik, sizee);
-	size=atoi(sizee.c_str());
-	tab=new int[size];
+	size= poprzedniRozmiar + (atoi(sizee.c_str()));
+
+	int *tab = new int[size];
+	for(int i=0; i< poprzedniRozmiar; i++)
+		tab[i] = tablica[i];
+
+	delete[] tablica;
+
+	tablica = tab;
+
+	int i = poprzedniRozmiar;
 
 	while( !plik.eof() )
 	{
    
 		plik>>tablica[i];
-		/*t->add(tab[i]);*/
 		i++;
 	}
+
 plik.close();
-
-
-
 }
 
 bool Tablica::Find(int a)
