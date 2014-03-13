@@ -22,6 +22,5 @@ public:
 	int getPozycja(int Value);
 	void wypisz();
 	void wczytaj();
-	bool Find(int);
 };
 
