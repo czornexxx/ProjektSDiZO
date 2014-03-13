@@ -24,11 +24,10 @@
     <ClCompile Include="Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="Heap.cpp">
-=======
+    <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Lista.cpp">
->>>>>>> 95ccc0eda5077f312e3cd23032f4faddced970b7
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -39,11 +38,10 @@
     <ClInclude Include="Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Heap.h">
-=======
+    <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Lista.h">
->>>>>>> 95ccc0eda5077f312e3cd23032f4faddced970b7
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
