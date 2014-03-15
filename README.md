@@ -7,3 +7,6 @@ Elo
 
 13.03.2013
 Poprawiona klasa Tablica. Zrobiona klasa Lista. Menu w main zajmiemy siê na koñcu jak wszystkie struktury bêd¹ poprawnie dzia³aæ. 
+
+UWAGA!!!
+Przed wys³aniem commitem/ wys³aniem projektu na serwer uruchom "skrypt.bat" w celu wyczyszczenia plików niepotrzebnych od Visuala. 
