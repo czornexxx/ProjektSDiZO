@@ -1,5 +1,4 @@
-#include "Tablica.h"
-#include <string>
+#include "Biblioteki.h"
 Tablica::Tablica(){
 
 	tablica = new int[0];

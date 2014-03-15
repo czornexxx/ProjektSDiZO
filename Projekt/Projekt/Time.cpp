@@ -1,4 +1,4 @@
-#include "Time.h"
+#include "Biblioteki.h"
 
 
 Time::Time(void)
@@ -14,10 +14,12 @@ void Time::start1()
 	performanceCountStart = startTimer(); 
 }
 
-long double Time::stop1()
+double Time::stop1()
 {
 	performanceCountEnd =endTimer();
-	time=performanceCountEnd.QuadPart-performanceCountStart.QuadPart;
+	
+	time=(performanceCountEnd.QuadPart-performanceCountStart.QuadPart);
+	
 	return time;
 }
 
@@ -27,6 +29,8 @@ LARGE_INTEGER start;
 DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), 0);
 QueryPerformanceCounter(&start);
 SetThreadAffinityMask(GetCurrentThread(), oldmask);
+freq=double(start.QuadPart)/1000;
+
 return start;
 }
 
@@ -37,11 +41,13 @@ LARGE_INTEGER stop;
 DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), 0);
 QueryPerformanceCounter(&stop);
 SetThreadAffinityMask(GetCurrentThread(), oldmask);
+
 return stop;
 }
 
 
 void Time::Print()
-{
-	cout<<"\nCzas: "<<cout.setf(ios::fixed)<<time<<endl;
+{	
+	cout.setf(ios::fixed);
+	cout<<"\nCzas: "<<time<<endl;
 }
