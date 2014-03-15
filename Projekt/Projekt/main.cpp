@@ -2,6 +2,10 @@
 #include "Tablica.h"
 #include "Lista.h"
 #include "Time.h"
+#include "DrzewoRB.h"
+
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -9,6 +13,20 @@ int main(){
 	//char c,ch,cch;
 	//Time A;
 	//Tablica *t = new Tablica();
+	 srand( time( NULL ) );
+	DrzewoRB d;
+
+	d.add(10);
+	d.add(7);
+	d.add(11);
+	d.add(12);
+
+
+	d.wyswietl();
+
+	//cout << "Koniec" << endl;
+
+	
 	
 	//do{
 	//	cout<<"Wybierz strukture: \n";

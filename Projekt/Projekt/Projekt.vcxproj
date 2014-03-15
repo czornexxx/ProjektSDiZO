@@ -115,12 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DrzewoRB.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tablica.cpp" />
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DrzewoRB.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Tablica.h" />
     <ClInclude Include="Time.h" />
