@@ -47,11 +47,10 @@
     <ClInclude Include="Lista.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Biblioteki.h">
-=======
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="DrzewoRB.h">
->>>>>>> 146b640ff5d080afd01185494fad8ad9149ff1d2
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
