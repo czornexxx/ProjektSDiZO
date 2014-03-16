@@ -115,23 +115,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClCompile Include="Heap.cpp" />
-=======
     <ClCompile Include="DrzewoRB.cpp" />
->>>>>>> 146b640ff5d080afd01185494fad8ad9149ff1d2
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tablica.cpp" />
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClInclude Include="Biblioteki.h" />
     <ClInclude Include="Heap.h" />
-=======
     <ClInclude Include="DrzewoRB.h" />
->>>>>>> 146b640ff5d080afd01185494fad8ad9149ff1d2
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Tablica.h" />
     <ClInclude Include="Time.h" />
