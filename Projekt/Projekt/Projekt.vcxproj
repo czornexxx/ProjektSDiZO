@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Heap.cpp" />
     <ClCompile Include="DrzewoRB.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="main.cpp" />
@@ -122,6 +123,8 @@
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Biblioteki.h" />
+    <ClInclude Include="Heap.h" />
     <ClInclude Include="DrzewoRB.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Tablica.h" />

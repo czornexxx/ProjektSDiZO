@@ -1,5 +1,4 @@
-#include "Lista.h"
-#include <iostream>
+#include "Biblioteki.h"
 
 Lista::Lista(void)
 {	

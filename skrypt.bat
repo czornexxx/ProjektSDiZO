@@ -10,4 +10,5 @@ rd/s/q Debug
 cd ..
 cd ..
 
+
 "H:\Program Files (x86)\Git\bin\sh.exe" --login -i

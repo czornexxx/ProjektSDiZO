@@ -24,6 +24,9 @@
     <ClCompile Include="Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Heap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Lista.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -38,7 +41,13 @@
     <ClInclude Include="Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Heap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Lista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Biblioteki.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DrzewoRB.h">

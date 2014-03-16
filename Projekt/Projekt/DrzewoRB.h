@@ -1,4 +1,10 @@
 #pragma once
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
 
 class Wezel {
 
@@ -105,7 +111,8 @@ class DrzewoRB
 {
 private: 
 	Wezel *korzen;
-
+	string cr,cl,cp;			  // £añcuchy do znaków ramek
+	
 public:
 	DrzewoRB(void);
 	~DrzewoRB(void);
@@ -113,5 +120,6 @@ public:
 	void add(int Value);
 	void wyswietl();
 	void wyswietlx(Wezel * wsk );
+	void wyswietly(string sp, string sn, Wezel * p);
 };
 

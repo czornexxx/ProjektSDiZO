@@ -1,9 +1,13 @@
 #include "DrzewoRB.h"
-#include <iostream>
+
 
 
 DrzewoRB::DrzewoRB(void)
 {
+  cr = cl = cp = "  ";
+  cr[0] = 218; cr[1] = 196;
+  cl[0] = 192; cl[1] = 196;
+  cp[0] = 179;
 }
 
 
@@ -78,3 +82,18 @@ void DrzewoRB::wyswietlx(Wezel *wsk){
 }
 
 
+void DrzewoRB::wyswietly(string sp, string sn, Wezel * p)
+{
+  string t;
+
+    t = sp;
+    if(sn == cr) t[t.length() - 2] = ' ';
+	wyswietly(t+cp,cr,p->getWskPrawyP());
+
+    t = t.substr(0,sp.length()-2);
+    cout << t << sn << "B" << ":" << p->getValue() << endl;
+
+    t = sp;
+    if(sn == cl) t[t.length() - 2] = ' ';
+	wyswietly(t+cp,cl,p->getWskLewyP());
+}
