@@ -1,30 +1,21 @@
-<<<<<<< HEAD
-#include "Biblioteki.h"
-=======
-#include <iostream>
-#include "Tablica.h"
-#include "Lista.h"
-#include "Time.h"
-#include "DrzewoRB.h"
 
-#include <cstdlib>
-#include <ctime>
->>>>>>> 146b640ff5d080afd01185494fad8ad9149ff1d2
+#include "Biblioteki.h"
+
 
 using namespace std;
 
 int main(){
-<<<<<<< HEAD
-	Heap H;
-	H.ReadFromFile();
-	H.Write();
-	H.BuildHeap();
-	H.Add(12);
-	H.Write();
+	Time t;
+	Lista l;
+	t.start1();
+	for(int i = 0; i<1000000; i++)
+		l.add(111111);
+	t.stop1();
+	t.Print();
 	/*char c,ch,cch;
 	Time A;
 	Tablica *t = new Tablica();
-=======
+
 	//char c,ch,cch;
 	//Time A;
 	//Tablica *t = new Tablica();
@@ -41,9 +32,7 @@ int main(){
 
 	//cout << "Koniec" << endl;
 
-	
->>>>>>> 146b640ff5d080afd01185494fad8ad9149ff1d2
-	
+
 	do{
 		cout<<"Wybierz strukture: \n";
 		cout<<"1 - tablica\n";
