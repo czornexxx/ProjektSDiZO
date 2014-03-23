@@ -7,11 +7,8 @@ using namespace std;
 class Time
 {
 private:
-<<<<<<< HEAD
-	LARGE_INTEGER performanceCountStart,performanceCountEnd, freq; 
-=======
+
 	LARGE_INTEGER performanceCountStart,performanceCountEnd,freq; 
->>>>>>> 497e106a00f6f94f5f0af938b0512186ed58779b
 	double time;
 public:
 	

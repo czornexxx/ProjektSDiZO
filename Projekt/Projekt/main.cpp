@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-
 #include "Biblioteki.h"
 
-=======
-
-#include "Biblioteki.h"
->>>>>>> 497e106a00f6f94f5f0af938b0512186ed58779b
 
 using namespace std;
 
