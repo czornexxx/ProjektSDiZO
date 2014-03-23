@@ -6,6 +6,13 @@ Elo
 
 
 13.03.2013
+<<<<<<< HEAD
+Poprawiona klasa Tablica. Zrobiona klasa Lista. Menu w main zajmiemy siê na koñcu jak wszystkie struktury bêd¹ poprawnie dzia³aæ. 
+
+UWAGA!!!
+Przed wys³aniem commitem/ wys³aniem projektu na serwer uruchom "skrypt.bat" w celu wyczyszczenia plików niepotrzebnych od Visuala. 
+=======
 Poprawiona klasa Tablica. Zrobiona klasa Lista. Menu w main zajmiemy siï¿½ na koï¿½cu jak wszystkie struktury bï¿½dï¿½ poprawnie dziaï¿½aï¿½. 
 
 Skrypt uruchamiasz przed commitem/ pushem. Usuwa wszystkie niepotrzebne pliki od VS. 
+>>>>>>> master

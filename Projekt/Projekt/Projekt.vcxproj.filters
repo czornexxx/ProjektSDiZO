@@ -49,6 +49,7 @@
     </ClInclude>
     <ClInclude Include="Biblioteki.h">
     <Filter>Header Files</Filter>
+     <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DrzewoRB.h">
       <Filter>Header Files</Filter>

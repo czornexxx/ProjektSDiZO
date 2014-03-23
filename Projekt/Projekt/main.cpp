@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 
 #include "Biblioteki.h"
 
+=======
+
+#include "Biblioteki.h"
+>>>>>>> 497e106a00f6f94f5f0af938b0512186ed58779b
 
 using namespace std;
 
 int main(){
+<<<<<<< HEAD
 	Time t;
 	Heap H;
 	t.start1();
@@ -22,6 +28,36 @@ int main(){
 	/*char c,ch,cch;
 	Time A;
 	Tablica *t = new Tablica();
+=======
+
+	srand( time( NULL ) );
+	DrzewoRB d;                  
+
+	d.add(5);
+	d.add(7);
+	d.add(2);
+	d.add(1);
+	d.add(4);
+
+	cout << d.wyszukaj(4) << endl;
+
+	d.wyswietl();
+
+	d.rotacjaLewo(d.wyszukaj(2));
+
+	d.wyswietl();
+
+	d.rotacjaPrawo(d.wyszukaj(4));
+
+	d.wyswietl();
+
+
+	//l.wyswietl();
+
+
+	/*char c,ch,cch;
+	Time A;
+>>>>>>> 497e106a00f6f94f5f0af938b0512186ed58779b
 
 	//char c,ch,cch;
 	//Time A;
@@ -40,6 +76,10 @@ int main(){
 	//cout << "Koniec" << endl;
 
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 497e106a00f6f94f5f0af938b0512186ed58779b
 	do{
 		cout<<"Wybierz strukture: \n";
 		cout<<"1 - tablica\n";
