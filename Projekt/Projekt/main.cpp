@@ -5,10 +5,27 @@ using namespace std;
 
 int main(){
 
+	srand( time( NULL ) );
+	DrzewoRB d;                  
 
-	Time t;
+	d.add(5);
+	d.add(7);
+	d.add(2);
+	d.add(1);
+	d.add(4);
 
-	
+	cout << d.wyszukaj(4) << endl;
+
+	d.wyswietl();
+
+	d.rotacjaLewo(d.wyszukaj(2));
+
+	d.wyswietl();
+
+	d.rotacjaPrawo(d.wyszukaj(4));
+
+	d.wyswietl();
+
 
 	//l.wyswietl();
 

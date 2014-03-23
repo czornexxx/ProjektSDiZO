@@ -7,8 +7,8 @@ using namespace std;
 class Time
 {
 private:
-	LARGE_INTEGER performanceCountStart,performanceCountEnd; 
-	double time,freq;
+	LARGE_INTEGER performanceCountStart,performanceCountEnd,freq; 
+	double time;
 public:
 	
 	Time(void);
