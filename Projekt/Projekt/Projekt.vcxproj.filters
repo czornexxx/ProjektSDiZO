@@ -48,11 +48,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Biblioteki.h">
-<<<<<<< HEAD
-      <Filter>Header Files</Filter>
-=======
      <Filter>Header Files</Filter>
->>>>>>> 5c825c0851e34fc08b4565351549607879f2068c
     </ClInclude>
     <ClInclude Include="DrzewoRB.h">
       <Filter>Header Files</Filter>
