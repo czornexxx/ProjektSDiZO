@@ -18,7 +18,7 @@ double Time::stop1()
 {
 	performanceCountEnd =endTimer();
 	
-	time=(performanceCountEnd.QuadPart-performanceCountStart.QuadPart);
+	time=double(performanceCountEnd.QuadPart-performanceCountStart.QuadPart);
 	
 	return time;
 }
@@ -51,5 +51,5 @@ return stop;
 void Time::Print()
 {	
 	cout.setf(ios::fixed);
-	cout<<"\nCzas: "<<time / freq.QuadPart * 1000<<endl;
+	cout<<setprecision(10)<<"\nCzas: "<<(time / double(freq.QuadPart)  )*1000<<endl;
 }

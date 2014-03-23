@@ -38,7 +38,7 @@ int Lista::getValue(int index){
 	int tmpWartosc = 0;
 	Element *tmpWskaznik = glowa;
 	
-	if(index > 0 && index <= size);		// sprawdzenie indexu
+	if(index > 0 && index <= size)	// sprawdzenie indexu
 	
 	for(int i=1; i<= size; i++){
 

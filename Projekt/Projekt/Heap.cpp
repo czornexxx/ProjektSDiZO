@@ -59,8 +59,28 @@ void Heap::Heapify(int i)
 
 }
 
-void Heap::Remove(int Value)
+void Heap::RemoveRoot()
 {
+	int i,j,v;
+
+  if(size--)
+  {
+    v = tab[size];
+
+    i = 0;
+    j = 1;
+
+    while(j < size)
+    {
+      if(j + 1 < size && tab[j + 1] > tab[j]) j++;
+      if(v >= tab[j]) break;
+      tab[i] = tab[j];
+      i = j;
+      j = 2 * j + 1;
+    }
+
+    tab[i] = v;
+  }
 
 }
 
@@ -100,5 +120,17 @@ void Heap::Write()
 {
 	for(int i=0; i<size; i++)
 		cout << tab[i] << endl;
+}
+
+
+bool Heap::Search(int Value)
+{
+	for( int i = size; i>=0; i--)
+	{
+		if(tab[0] == Value){
+			return true;}
+		RemoveRoot();
+	}
+	return false;
 }
 

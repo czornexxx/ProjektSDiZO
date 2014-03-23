@@ -1,13 +1,11 @@
-﻿Build started 2014-03-16 15:48:25.
+﻿Build started 2014-03-23 09:20:35.
      1>Project "D:\Sdizo1\projektsdizo\Projekt\Projekt\Projekt.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Heap.cpp DrzewoRB.cpp Lista.cpp main.cpp Tablica.cpp Time.cpp
          Time.cpp
-     1>d:\sdizo1\projektsdizo\projekt\projekt\time.cpp(21): warning C4244: '=' : conversion from 'LONGLONG' to 'double', possible loss of data
          Tablica.cpp
          main.cpp
          Lista.cpp
-     1>d:\sdizo1\projektsdizo\projekt\projekt\lista.cpp(43): warning C4390: ';' : empty controlled statement found; is this the intent?
          DrzewoRB.cpp
          Heap.cpp
          Generating Code...
@@ -23,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:11.44
+Time Elapsed 00:00:12.02

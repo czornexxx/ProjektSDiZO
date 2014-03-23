@@ -6,10 +6,17 @@ using namespace std;
 
 int main(){
 	Time t;
-	Lista l;
+	Heap H;
 	t.start1();
-	for(int i = 0; i<1000000; i++)
-		l.add(111111);
+	H.ReadFromFile();
+	H.BuildHeap();
+	H.Add(33);
+	H.Write();
+	H.RemoveRoot();
+	H.Write();
+	if(H.Search(11))
+		cout<<"\nW kopcu znajduje sie szukana liczba\n";
+	else cout<<"\nW kopcu NIE znajduje sie szukana liczba\n";
 	t.stop1();
 	t.Print();
 	/*char c,ch,cch;
