@@ -1,7 +1,6 @@
 #include "DrzewoRB.h"
 
 
-
 DrzewoRB::DrzewoRB(void)
 {
   cr = cl = cp = "  ";
@@ -66,13 +65,15 @@ void DrzewoRB::add(int Value){
 	Wezel * Y;
 	tmpWezel = nowy;
 	tmpWezel->setKolor('R');         // Wêze³ kolorujemy na czerwono
-	while((tmpWezel != korzen) && (tmpWezel->getWskOjciec()->getKolor() == 'R'))
+
+	while((tmpWezel != korzen) && (tmpWezel->getWskOjciec()->getKolor() == 'R'))  // jeœli rodzic jest czewony to przywracamy w³asnoœci drzewa RB
   {
     if(tmpWezel->getWskOjciec() == tmpWezel->getWskOjciec()->getWskOjciec()->getWskLewyP())
     {
       Y = tmpWezel->getWskOjciec()->getWskOjciec()->getWskPrawyP(); // Y -> wujek X
 
-      if(Y->getKolor() == 'R')  // Przypadek 1
+	
+      if(Y != 0 && Y->getKolor() == 'R')  // Przypadek 1
       {
         tmpWezel->getWskOjciec()->setKolor('B');
         Y->setKolor('B');
@@ -96,7 +97,7 @@ void DrzewoRB::add(int Value){
     {                  // Przypadki lustrzane
       Y = tmpWezel->getWskOjciec()->getWskOjciec()->getWskLewyP();
 
-      if(Y->getKolor() == 'R') // Przypadek 1
+      if(Y != 0 && Y->getKolor() == 'R') // Przypadek 1
       {
         tmpWezel->getWskOjciec()->setKolor('B');
         Y->setKolor('B');
@@ -153,6 +154,8 @@ void DrzewoRB::rotacjaLewo(Wezel *A){
 
   Wezel * B, * p;
 
+  if(A == 0) return;
+
   B = A->getWskPrawyP();
   if(B != 0)
   {
@@ -179,6 +182,8 @@ void DrzewoRB::rotacjaLewo(Wezel *A){
 void DrzewoRB::rotacjaPrawo(Wezel *A){
 
   Wezel * B, * p;
+
+  if(A == 0) return;
 
   B = A->getWskLewyP();
   if(B != 0)

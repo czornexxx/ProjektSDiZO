@@ -5,26 +5,25 @@ using namespace std;
 
 int main(){
 
-	srand( time( NULL ) );
+	srand(time(NULL));
 	DrzewoRB d;                  
 
-	d.add(5);
-	d.add(7);
-	d.add(2);
-	d.add(1);
-	d.add(4);
-
-	cout << d.wyszukaj(4) << endl;
+	 d.add(71);
+	 d.add(18);
+	 d.add(76);
+	 d.add(63);
 
 	d.wyswietl();
+	cout << endl << endl;
 
-	d.rotacjaLewo(d.wyszukaj(2));
-
+	d.add(37);	
+	cout << endl << endl;
 	d.wyswietl();
+	//d.wyswietl();
 
-	d.rotacjaPrawo(d.wyszukaj(4));
+	//d.rotacjaPrawo(d.wyszukaj(4));
 
-	d.wyswietl();
+	//d.wyswietl();
 
 
 	//l.wyswietl();

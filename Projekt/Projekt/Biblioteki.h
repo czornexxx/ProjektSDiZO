@@ -1,6 +1,5 @@
 #include "Tablica.h"
 #include <string>
-#include "Time.h"
 #include <iomanip>
 #include <iostream>
 #include "Lista.h"
@@ -8,6 +7,8 @@
 #include "DrzewoRB.h"
 #include <cstdlib>
 #include <windows.h>
-#include <ctime>
 #include <stdlib.h>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
