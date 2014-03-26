@@ -1,4 +1,11 @@
 #pragma once
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+#include "Biblioteki.h"
+
+using namespace std;
 
 class Wezel {
 
@@ -8,6 +15,7 @@ private:
 	Wezel * lewyPotomek;
 
 	int wartosc; 
+	char kolor;
 
 public: 
 	Wezel(){
@@ -15,6 +23,7 @@ public:
 		ojciec = 0; 
 		prawyPotomek = 0;
 		lewyPotomek = 0;
+		kolor = 'R';
 	
 		wartosc = 0;
 	}
@@ -24,6 +33,7 @@ public:
 		ojciec = 0; 
 		prawyPotomek = 0;
 		lewyPotomek = 0;
+		kolor = 'R';
 	
 		wartosc = Value;
 	}
@@ -33,7 +43,8 @@ public:
 		ojciec = wskOjciec; 
 		prawyPotomek = 0;
 		lewyPotomek = 0;
-	
+		kolor = 'R';
+		
 		wartosc = Value;
 	}
 
@@ -42,16 +53,21 @@ public:
 		ojciec = wskOjciec; 
 		prawyPotomek = 0;
 		lewyPotomek = wskLewyP;
-	
+		kolor = 'R';
+
 		wartosc = Value;
 	}
 
-	Wezel(int Value, Wezel *wskOjciec, Wezel *wskLewyP, Wezel *wskPrawyP){
+	Wezel(int Value, char Kolor, Wezel *wskOjciec, Wezel *wskLewyP, Wezel *wskPrawyP){
 
 		ojciec = wskOjciec; 
 		prawyPotomek = wskPrawyP;
 		lewyPotomek = wskLewyP;
-	
+		if(Kolor == 'B' || Kolor == 'b' || Kolor == 'R' || Kolor == 'r')
+			kolor = Kolor;
+		else
+			kolor = 'R';
+
 		wartosc = Value;
 	}
 
@@ -97,6 +113,24 @@ public:
 
 		return prawyPotomek;
 	}
+
+	char getKolor(){
+
+		return kolor;
+	}
+
+	bool setKolor(char Kolor){
+
+		if(Kolor == 'B' || Kolor == 'b' || Kolor == 'R' || Kolor == 'r'){
+			
+			kolor = Kolor;
+			return true; 
+		}
+
+		return false;
+	}
+
+
 };
 
 
@@ -105,13 +139,19 @@ class DrzewoRB
 {
 private: 
 	Wezel *korzen;
+	string cr,cl,cp;			  // £añcuchy do znaków ramek
+	HANDLE hOut;
 
 public:
 	DrzewoRB(void);
 	~DrzewoRB(void);
 
 	void add(int Value);
+	Wezel * wyszukaj(int Value);
 	void wyswietl();
+	void rotacjaLewo(Wezel *A);
+	void rotacjaPrawo(Wezel *A);
 	void wyswietlx(Wezel * wsk );
+	void wyswietly(string sp, string sn, Wezel * p);
 };
 

@@ -4,7 +4,9 @@ class Heap
 {
 private:
 	int size;
-	int *tab;
+	int sizebuff;
+	int *tab, *buff;
+	string cr,cl,cp;
 public:
 	Heap(void);
 	~Heap(void);
@@ -12,8 +14,11 @@ public:
 	void Add(int);
 	void BuildHeap();
 	void Heapify(int);
-	void Remove(int);
+	void RemoveRoot(void);
 	void ReadFromFile(void);
-	void Write(void);
+	void Write(string,string,int);
+	bool Search(int);
+	void Remove(int);
+	void AddBuff(int);
 };
 

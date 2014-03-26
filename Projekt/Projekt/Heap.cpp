@@ -10,6 +10,7 @@ Heap::Heap(void)
 Heap::~Heap(void)
 {
 	delete []tab;
+	
 }
 
 void Heap::Add(int Value)
@@ -59,8 +60,28 @@ void Heap::Heapify(int i)
 
 }
 
-void Heap::Remove(int Value)
+void Heap::RemoveRoot()
 {
+	int i,j,v;
+
+  if(size--)
+  {
+    v = tab[size];
+
+    i = 0;
+    j = 1;
+
+    while(j < size)
+    {
+      if(j + 1 < size && tab[j + 1] > tab[j]) j++;
+      if(v >= tab[j]) break;
+      tab[i] = tab[j];
+      i = j;
+      j = 2 * j + 1;
+    }
+
+    tab[i] = v;
+  }
 
 }
 
@@ -96,9 +117,82 @@ plik.close();
 
 }
 
-void Heap::Write()
+void Heap::Write(string sp, string sn, int v)
 {
-	for(int i=0; i<size; i++)
-		cout << tab[i] << endl;
+	string s;
+	cr = cl = cp = "  ";
+  cr[0] = 218; cr[1] = 196;
+  cl[0] = 192; cl[1] = 196;
+  cp[0] = 179;
+
+  if(v < size)
+  {
+    s = sp;
+    if(sn == cr) s[s.length() - 2] = ' ';
+    Write(s + cp, cr, 2 * v + 2);
+
+    s = s.substr(0,sp.length()-2);
+
+    cout << s << sn << tab[v] << endl;
+
+    s = sp;
+    if(sn == cl) s[s.length() - 2] = ' ';
+    Write(s + cp, cl, 2 * v + 1);
+  }
 }
 
+
+bool Heap::Search(int Value)
+{
+	for( int i = size; i>=0; i--)
+	{
+		if(tab[0] == Value){
+			return true;}
+		RemoveRoot();
+	}
+	return false;
+}
+
+void Heap::Remove(int Value)
+{
+	sizebuff=0;
+	buff=new int[sizebuff];
+	for( int i = size; i>=0; i--)
+	{
+		if(tab[0] == Value)
+		{RemoveRoot();break;
+		}
+		else
+			{AddBuff(tab[0]);
+			RemoveRoot();
+		}
+
+		}
+	for (int i =sizebuff; i>0; i--)
+	{
+		Add(buff[i-1]);
+	}
+	
+	delete []buff;
+	
+}
+
+void Heap::AddBuff(int Value)
+{
+	int *tmp;
+	//sizebuff=sizebuff + 1;
+	//a = sizebuff-1;
+	tmp = new int[sizebuff + 1];
+
+	for(int i=0; i<sizebuff; i++)
+		tmp[i] = buff[i];
+
+	delete[] buff;
+
+	tmp[sizebuff] = Value;
+	
+	buff = tmp;
+
+	sizebuff ++;
+		
+}
