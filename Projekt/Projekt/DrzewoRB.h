@@ -1,8 +1,4 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <cstdlib>
-#include <ctime>
 #include "Biblioteki.h"
 
 using namespace std;
@@ -148,10 +144,15 @@ public:
 
 	void add(int Value);
 	Wezel * wyszukaj(int Value);
+	Wezel * nastepnik(Wezel * w);
+	Wezel * minWezel(Wezel *w);
+	void removeWezel(Wezel *x);
+	void remove(int Value);
 	void wyswietl();
 	void rotacjaLewo(Wezel *A);
 	void rotacjaPrawo(Wezel *A);
-	void wyswietlx(Wezel * wsk );
+
+private:
 	void wyswietly(string sp, string sn, Wezel * p);
 };
 

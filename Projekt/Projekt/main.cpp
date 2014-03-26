@@ -1,6 +1,5 @@
 #include "Biblioteki.h"
 
-
 using namespace std;
 int *liczby,n;
 void Losuj()
@@ -92,13 +91,43 @@ fstream zapisz;
 
 }
 
+void zapiszDoPliku(string nazwa, int *tab, int n){
+
+	fstream plik;
+	plik.open(nazwa,ios::out);
+
+	for(int i=0; i<n; i++){
+
+		plik << tab[i] << endl;
+	}
+	plik.close();
+}
+
+int wczytajDoTablicy(Tablica *tabkolekcja,int *tab, int n){
+
+	Time czas;
+	czas.start1();
+
+	for(int i=0; i<n; i++)
+		tabkolekcja->add(tab[i]);
+
+	return czas.stop1();;
+}
+
+
 int main(){
 
+<<<<<<< HEAD
 	Losuj();
 	mieszaj();
 
 	
 	/*Heap H;
+=======
+	Time t;
+	Heap H;
+	t.start1();
+>>>>>>> ec85e74acc13f45e619f88ca68dfedc0a4377c2a
 	H.ReadFromFile();
 	H.BuildHeap();
 	H.RemoveRoot();
@@ -107,33 +136,39 @@ int main(){
 	if(H.Search(11))
 		cout<<"\nW kopcu znajduje sie szukana liczba\n";
 	else cout<<"\nW kopcu NIE znajduje sie szukana liczba\n";
+<<<<<<< HEAD
 	H.Remove(4);
 	H.Write("","",0);*/
+=======
+	t.stop1();
+	t.Print();
+
+>>>>>>> ec85e74acc13f45e619f88ca68dfedc0a4377c2a
 	/*char c,ch,cch;
 	Time A;
 	Tablica *t = new Tablica();
 =======
 
-	srand( time( NULL ) );
+	srand(time(NULL));
+	Tablica t;
+	Lista l;
 	DrzewoRB d;                  
+	Time t1, t2, t3;
 
-	d.add(5);
-	d.add(7);
-	d.add(2);
-	d.add(1);
-	d.add(4);
+	int tablica[1000];
 
-	cout << d.wyszukaj(4) << endl;
+	int i;
+	for(i=0; i<1000; i++)
+		tablica[i] = rand();
 
-	d.wyswietl();
+		zapiszDoPliku("plik.txt",tablica,i);
 
-	d.rotacjaLewo(d.wyszukaj(2));
 
-	d.wyswietl();
+	//d.wyswietl();
 
-	d.rotacjaPrawo(d.wyszukaj(4));
+	//d.rotacjaPrawo(d.wyszukaj(4));
 
-	d.wyswietl();
+	//d.wyswietl();
 
 
 	//l.wyswietl();
