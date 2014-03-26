@@ -1,10 +1,9 @@
 #include "Biblioteki.h"
 
-
 using namespace std;
 
 int main(){
-<<<<<<< HEAD
+
 	Time t;
 	Heap H;
 	t.start1();
@@ -19,6 +18,7 @@ int main(){
 	else cout<<"\nW kopcu NIE znajduje sie szukana liczba\n";
 	t.stop1();
 	t.Print();
+
 	/*char c,ch,cch;
 	Time A;
 	Tablica *t = new Tablica();
