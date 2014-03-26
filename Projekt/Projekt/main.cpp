@@ -2,6 +2,30 @@
 
 using namespace std;
 
+void zapiszDoPliku(string nazwa, int *tab, int n){
+
+	fstream plik;
+	plik.open(nazwa,ios::out);
+
+	for(int i=0; i<n; i++){
+
+		plik << tab[i] << endl;
+	}
+	plik.close();
+}
+
+int wczytajDoTablicy(Tablica *tabkolekcja,int *tab, int n){
+
+	Time czas;
+	czas.start1();
+
+	for(int i=0; i<n; i++)
+		tabkolekcja->add(tab[i]);
+
+	return czas.stop1();;
+}
+
+
 int main(){
 
 	srand(time(NULL));
@@ -10,29 +34,13 @@ int main(){
 	DrzewoRB d;                  
 	Time t1, t2, t3;
 
-	t1.start1();
-	for(int i=0; i<200000; i++)
-		t.add(rand());
-	cout << "dodano do tablicy: " << endl;
-	t1.stop1();
-	t1.Print();
-	cout << endl;
+	int tablica[1000];
 
-	t2.start1();
-	for(int i=0; i<2000000; i++)
-		l.add(rand());
-	cout << "dodano do listy" << endl;
-	t2.stop1();
-	t2.Print();
-	cout << endl;
+	int i;
+	for(i=0; i<1000; i++)
+		tablica[i] = rand();
 
-	t3.start1();
-	for(int i=0; i<20000; i++)
-		d.add(rand());
-	cout << "dodano do drzewa" << endl;
-	t3.stop1();
-	t3.Print();
-	cout << endl;
+		zapiszDoPliku("plik.txt",tablica,i);
 
 
 	//d.wyswietl();
