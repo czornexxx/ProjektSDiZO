@@ -1,8 +1,28 @@
 #include "Biblioteki.h"
 
+
 using namespace std;
 
 int main(){
+<<<<<<< HEAD
+	Time t;
+	Heap H;
+	t.start1();
+	H.ReadFromFile();
+	H.BuildHeap();
+	H.Add(33);
+	H.Write();
+	H.RemoveRoot();
+	H.Write();
+	if(H.Search(11))
+		cout<<"\nW kopcu znajduje sie szukana liczba\n";
+	else cout<<"\nW kopcu NIE znajduje sie szukana liczba\n";
+	t.stop1();
+	t.Print();
+	/*char c,ch,cch;
+	Time A;
+	Tablica *t = new Tablica();
+=======
 
 	srand(time(NULL));
 	Tablica t;
@@ -47,6 +67,7 @@ int main(){
 
 	/*char c,ch,cch;
 	Time A;
+>>>>>>> 497e106a00f6f94f5f0af938b0512186ed58779b
 
 	//char c,ch,cch;
 	//Time A;
@@ -65,7 +86,10 @@ int main(){
 	//cout << "Koniec" << endl;
 
 
+<<<<<<< HEAD
+=======
 	
+>>>>>>> 497e106a00f6f94f5f0af938b0512186ed58779b
 	do{
 		cout<<"Wybierz strukture: \n";
 		cout<<"1 - tablica\n";

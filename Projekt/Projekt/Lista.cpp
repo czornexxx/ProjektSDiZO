@@ -39,6 +39,7 @@ int Lista::getValue(int index){
 	Element *tmpWskaznik = glowa;
 	
 	if(index > 0 && index <= size)				// sprawdzenie indexu
+
 	
 	for(int i=1; i<= size; i++){
 

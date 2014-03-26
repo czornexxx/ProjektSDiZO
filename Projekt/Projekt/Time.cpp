@@ -19,7 +19,7 @@ double Time::stop1()
 {
 	performanceCountEnd =endTimer();
 	
-	time=(performanceCountEnd.QuadPart-performanceCountStart.QuadPart);
+	time=double(performanceCountEnd.QuadPart-performanceCountStart.QuadPart);
 	
 	return time;
 }
@@ -31,9 +31,9 @@ DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), 0);
 QueryPerformanceCounter(&start);
 SetThreadAffinityMask(GetCurrentThread(), oldmask);
 
+
 return start;
 }
-
 
 LARGE_INTEGER Time::endTimer()
 {
@@ -41,7 +41,12 @@ LARGE_INTEGER stop;
 DWORD_PTR oldmask = SetThreadAffinityMask(GetCurrentThread(), 0);
 QueryPerformanceCounter(&stop);
 SetThreadAffinityMask(GetCurrentThread(), oldmask);
-QueryPerformanceCounter(&freq);
+
+
+
+QueryPerformanceFrequency(&freq);
+
+
 return stop;
 }
 
@@ -49,5 +54,6 @@ return stop;
 void Time::Print()
 {	
 	cout.setf(ios::fixed);
-	cout<<"\nCzas: "<<(time/freq.QuadPart)*1000<<endl;
+	cout<<setprecision(10)<<"\nCzas: "<<(time / double(freq.QuadPart)  )*1000<<endl;
+
 }
