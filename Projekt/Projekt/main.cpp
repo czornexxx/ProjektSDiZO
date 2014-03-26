@@ -39,55 +39,46 @@ void Losuj()
 
 void mieszaj()
 {
-	int t;
-	bool z;
-	int licznik = 0;
-	int *tmp = new int[n];
-	int size1 =n;
-	
+	int *tmp = new int[n]; 
+	int iterator = 0;
+	int ntmp = n, losLiczba;
+		
 	srand(time(NULL));
 	
-	do{
+	while(ntmp != 0){
+			
+		// losowanie liczby z przedzialu
 
-		if(n>32767)
-			t = rand();
-		else 
-			t = rand() %n+1;
-		z = true;
-		tmp[licznik] = liczby[t];
+		if(ntmp > 32767)
+			losLiczba = rand();
+		else
+			losLiczba = rand()%(ntmp);
+
+		// przeniesienie liczb
+
+		tmp[iterator] = liczby[losLiczba];
+
+		for(int i=losLiczba; i<ntmp; i++)
+			liczby[i] = liczby[i+1];
 		
-		
-		licznik++;
-		
-		int *tmp2 = new int[n];
-		for( int i = 0; i<t; i++)
-			tmp2[i] = liczby[i];
-		for (int i=t; i<n; i++)
-			tmp2[i] = liczby[i+1];
-		//delete [] liczby;
-		liczby = new int[n];
-		/*for(int i =0; i<n; i++)*/
-			liczby=tmp2;
-		
-		n--;	
-		//delete []tmp2;
-	}while(n>0);
-	/*for(int i = 0; i<size1; i++)*/
-		liczby=tmp;
-	
-	//delete []tmp;
+		iterator ++;	
+		ntmp --;
+	}
+
+	liczby = tmp;
+
+
+
 fstream zapisz;
 	zapisz.open("liczby2.txt", ios::trunc | ios::out);
 
-	zapisz<<size1<<"\n";
-	for(int i = 0; i<size1; i++)
+	zapisz<<n<<"\n";
+	for(int i = 0; i<n; i++)
 	{
 		zapisz<<liczby[i]<<"\n";
 	}
 	zapisz.flush();
 	zapisz.close();
-
-
 
 }
 
@@ -117,17 +108,17 @@ int wczytajDoTablicy(Tablica *tabkolekcja,int *tab, int n){
 
 int main(){
 
-<<<<<<< HEAD
+
 	Losuj();
 	mieszaj();
 
 	
 	/*Heap H;
-=======
+
 	Time t;
 	Heap H;
 	t.start1();
->>>>>>> ec85e74acc13f45e619f88ca68dfedc0a4377c2a
+
 	H.ReadFromFile();
 	H.BuildHeap();
 	H.RemoveRoot();
@@ -136,14 +127,11 @@ int main(){
 	if(H.Search(11))
 		cout<<"\nW kopcu znajduje sie szukana liczba\n";
 	else cout<<"\nW kopcu NIE znajduje sie szukana liczba\n";
-<<<<<<< HEAD
+
 	H.Remove(4);
 	H.Write("","",0);*/
-=======
-	t.stop1();
-	t.Print();
 
->>>>>>> ec85e74acc13f45e619f88ca68dfedc0a4377c2a
+
 	/*char c,ch,cch;
 	Time A;
 	Tablica *t = new Tablica();
@@ -174,10 +162,6 @@ int main(){
 	//l.wyswietl();
 
 
-	/*char c,ch,cch;
-	Time A;
->>>>>>> 497e106a00f6f94f5f0af938b0512186ed58779b
-
 	//char c,ch,cch;
 	//Time A;
 	//Tablica *t = new Tablica();
@@ -195,10 +179,7 @@ int main(){
 	//cout << "Koniec" << endl;
 
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> 497e106a00f6f94f5f0af938b0512186ed58779b
+
 	do{
 		cout<<"Wybierz strukture: \n";
 		cout<<"1 - tablica\n";
