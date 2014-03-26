@@ -54,8 +54,9 @@ public:
 
 	void add(int value);
 	bool add(int value, int idx);
-	bool remove(int idx);
-	bool sprawdz(int value);
+	bool removeIndex(int idx);
+	bool remove(int value);
+	Element * sprawdz(int value);
 	int getSize();
 	int getValue(int index);
 	void wyswietl(); 

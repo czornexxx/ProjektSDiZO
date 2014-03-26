@@ -17,10 +17,11 @@ public:
 	bool add(int Value, int idx);
 	int getValue(int idx);
 	int getSize();
-	bool remove(int idx);
+	bool removeIndex(int idx);
+	void remove(int value);
 	bool sprawdz(int Value);
 	int getPozycja(int Value);
-	void wypisz();
+	void wyswietl();
 	void wczytaj();
 };
 

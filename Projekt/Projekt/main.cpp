@@ -1,4 +1,3 @@
-
 #include "Biblioteki.h"
 
 using namespace std;
@@ -6,19 +5,36 @@ using namespace std;
 int main(){
 
 	srand(time(NULL));
+	Tablica t;
+	Lista l;
 	DrzewoRB d;                  
+	Time t1, t2, t3;
 
-	 d.add(71);
-	 d.add(18);
-	 d.add(76);
-	 d.add(63);
+	t1.start1();
+	for(int i=0; i<200000; i++)
+		t.add(rand());
+	cout << "dodano do tablicy: " << endl;
+	t1.stop1();
+	t1.Print();
+	cout << endl;
 
-	d.wyswietl();
-	cout << endl << endl;
+	t2.start1();
+	for(int i=0; i<2000000; i++)
+		l.add(rand());
+	cout << "dodano do listy" << endl;
+	t2.stop1();
+	t2.Print();
+	cout << endl;
 
-	d.add(37);	
-	cout << endl << endl;
-	d.wyswietl();
+	t3.start1();
+	for(int i=0; i<20000; i++)
+		d.add(rand());
+	cout << "dodano do drzewa" << endl;
+	t3.stop1();
+	t3.Print();
+	cout << endl;
+
+
 	//d.wyswietl();
 
 	//d.rotacjaPrawo(d.wyszukaj(4));

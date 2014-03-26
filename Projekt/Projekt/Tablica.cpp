@@ -67,7 +67,7 @@ int Tablica::getSize(){
 	return size;
 }
 
-bool Tablica::remove(int idx){
+bool Tablica::removeIndex(int idx){
 
 	idx --;
 	// sprawdzenie czy idx jest >=0 oraz czy nie jest wiekszy niz elementy tablicy
@@ -94,7 +94,15 @@ bool Tablica::remove(int idx){
 	return false;
 }
 
-void Tablica::wypisz(){
+void Tablica::remove(int value){
+
+	int tmp = getPozycja(value);
+	if(tmp != NULL)
+		removeIndex(tmp);
+}
+
+
+void Tablica::wyswietl(){
 
 	for(int i=0; i<size; i++)
 		cout << tablica[i] << endl;
@@ -116,7 +124,7 @@ int Tablica::getPozycja(int Value){
 	for(int i=0; i<size; i++)		// szukanie wartoœci i zwracanie pozycji na której jest.
 		
 		if(tablica[i] == Value)
-			return i;
+			return (++i);
 
 	return NULL;	
 }

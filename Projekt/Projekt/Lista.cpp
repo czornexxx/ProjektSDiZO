@@ -67,32 +67,68 @@ void Lista::wyswietl(){
 }
 
 bool Lista::add(int value, int idx){
-
-	if(idx <=0 || idx > size)		// jesli index z poza zakresu to false;
+	
+	if(size == 0){
+		if(idx == 0 ){
+			add(value);
+			return true;
+		}
 		return false;
+	}
+	else if(size == 1){
 
+		if(idx == 0){
+			
+			Element *nowy = new Element(value);
+			glowa = nowy;
+			glowa->setWskaznik(ogon);
+			size ++;
+			return true;
+		}
+		else if(idx == 1){
+
+			Element *nowy = new Element(value);
+			ogon = nowy;
+			glowa->setWskaznik(ogon);
+			size ++;
+			return true;
+		}
+		return false;
+	}
+
+	if(idx == 0){
+
+		Element *nowy = new Element(value);
+		nowy->setWskaznik(glowa);
+		glowa = nowy;
+		size ++;
+		return true;
+	}
+
+	if(idx <=0 || idx > size)
+		return false;
+	idx --;
 	Element *nowy = new Element(value);
 
 	Element *tmpWskaznik;
 	tmpWskaznik = glowa;
 
-	for(int i=1; i<=size; i++){
+	for(int i=0; i<size; i++){
 
-		if(i = idx)
+		if(i == idx)
 			break;
 		tmpWskaznik = tmpWskaznik->getWskaznik();
 	}
 
 	nowy->setWskaznik(tmpWskaznik->getWskaznik());		// zapsanie wskaznika do nowego elementu
-
-	tmpWskaznik->setWskaznik(nowy);						// ustawienie wsk elementu na nowy
-
+	tmpWskaznik->setWskaznik(nowy);		                // ustawienie wsk elementu na nowy
+	
 	size ++;											// zwiekszenie rozmiaru listy
 
 	return true;
 }
 
-bool Lista::remove(int idx){
+bool Lista::removeIndex(int idx){
 
 	if(idx <=0 || idx > size)		// jesli index z poza zakresu to false;
 		return false;
@@ -126,7 +162,78 @@ bool Lista::remove(int idx){
 	return true;
 }
 
-bool Lista::sprawdz(int value){
+bool Lista::remove(int value){
+
+	if( size == 0 )
+		return false;
+
+	// jeœli jest 1 element w liœcie
+	if( size == 1){
+
+		if(glowa ->getValue() == value){
+			
+			size --;
+			ogon = NULL;
+			glowa = NULL;
+			return true;
+		}
+		else
+			return false;
+	}
+
+	if( size == 2 ){
+
+		if(glowa->getValue() == value){
+
+			size --;
+			delete glowa;
+			glowa = ogon;
+			return true;
+		}
+		else if(ogon->getValue() == value){
+
+			size --;
+			delete ogon;
+			ogon = glowa;
+			return true;
+		}
+		return false;
+	}
+
+// jesli wiecej elementow 
+	Element *tmp0 = glowa;
+	Element *tmp1 = glowa->getWskaznik();
+
+	if(value == glowa->getValue()){						
+		glowa = glowa->getWskaznik();
+		size --;
+		return true;
+	}
+
+	while(tmp1->getValue() != value && tmp1->getWskaznik() != ogon){
+
+		tmp0 = tmp1;
+		tmp1 = tmp1->getWskaznik();
+	}
+
+	if(tmp1->getWskaznik() == ogon){
+		if(ogon->getValue() == value){
+			delete ogon;
+			ogon = tmp1;
+			size --;
+			return true;
+		}
+	}
+	else{
+		tmp0->setWskaznik(tmp1->getWskaznik());
+		delete tmp1;
+		size --;
+		return true;
+	}
+	return false;
+}
+
+Element * Lista::sprawdz(int value){
 
 	bool tmp = false;
 	Element *tmpWskaznik;
@@ -135,14 +242,13 @@ bool Lista::sprawdz(int value){
 	for(int i=0; i<size; i++){
 
 		if((tmpWskaznik->getValue()) == value){
-
-			tmp = true;
-			break;
+			
+			return tmpWskaznik;
 		}
 
 		tmpWskaznik = tmpWskaznik->getWskaznik();
 	}
 
-	return tmp;
+	return 0;
 }
 
