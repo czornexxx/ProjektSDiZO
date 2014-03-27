@@ -1,9 +1,9 @@
 #include "Biblioteki.h"
 
 Heap::Heap(void)
-{
-	tab = new int[0];
-	size = 0;
+{   size = 1;
+tab = new int[size];
+	
 }
 
 
@@ -13,12 +13,24 @@ Heap::~Heap(void)
 	
 }
 
+
+
 void Heap::Add(int Value)
-{
-	int tmp,a;
-	size=size + 1;
-	a = size-1;
-	tab[a] = Value;
+{   int a, tmp;
+
+	size++;
+	int *tab1=new int[size];
+	for(int i = 0; i<size-1; i++)
+	tab1[i]=tab[i];
+	tab1[size-1] = Value;
+	delete []tab;
+	tab = new int[size];
+	for(int i =0; i<size; i++)
+	tab[i]=tab1[i];
+	delete []tab1;
+
+	a=size-1;
+	
 
 	while(a > 0 && tab[a] > tab[(a-1)/2])
 	{

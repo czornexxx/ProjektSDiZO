@@ -50,6 +50,11 @@ QueryPerformanceFrequency(&freq);
 return stop;
 }
 
+double Time::zwrocCzas(){
+
+	return (( time / double(freq.QuadPart)  )*1000);
+}
+
 
 void Time::Print()
 {	

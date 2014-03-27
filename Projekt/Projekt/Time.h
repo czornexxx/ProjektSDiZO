@@ -17,6 +17,7 @@ public:
 	void start1(void);
 	double stop1(void);
 	void Print(void);
+	double zwrocCzas();
 	LARGE_INTEGER startTimer(void);
 	LARGE_INTEGER endTimer(void);
 };
