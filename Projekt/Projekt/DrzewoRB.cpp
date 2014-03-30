@@ -63,7 +63,7 @@ void DrzewoRB::add(int Value){
 	// **** Przywracanie struktury drzewa RB *****
 	Wezel * Y;
 	tmpWezel = nowy;
-	tmpWezel->setKolor('R');         // Wêze³ kolorujemy na czerwono
+	tmpWezel->setKolor('R');         // ustawienie wezla na czerwono
 
 	while((tmpWezel != korzen) && (tmpWezel->getWskOjciec()->getKolor() == 'R'))  // jeœli rodzic jest czewony to przywracamy w³asnoœci drzewa RB
 	{
@@ -148,7 +148,7 @@ Wezel* DrzewoRB::wyszukaj(int Value){
 
 	return 0;
 }
-
+// rotacja w lewo
 void DrzewoRB::rotacjaLewo(Wezel *A){
 
 	Wezel * B, * p;
@@ -177,7 +177,7 @@ void DrzewoRB::rotacjaLewo(Wezel *A){
 	}
 
 }
-
+// rotacja w prawo
 void DrzewoRB::rotacjaPrawo(Wezel *A){
 
 	Wezel * B, * p;
@@ -238,7 +238,7 @@ void DrzewoRB::wyswietly(string sp, string sn, Wezel * p)
 	if(p != 0 && p->getWskLewyP() != 0)
 		wyswietly(t+cp,cl,p->getWskLewyP());
 }
-
+// znalezienie wezla z nimimalna wartoscia
 Wezel * DrzewoRB::minWezel(Wezel *w){
 
 	if(w != 0)
@@ -246,7 +246,7 @@ Wezel * DrzewoRB::minWezel(Wezel *w){
 			w = w->getWskLewyP();
 	return w;
 }
-
+// wyznaczenie nastepnika
 Wezel * DrzewoRB::nastepnik(Wezel *w){
 
 	Wezel * r;
@@ -266,9 +266,8 @@ Wezel * DrzewoRB::nastepnik(Wezel *w){
 		}
 	}
 	return 0;
-
 }
-
+// usuniecie wezla
 void DrzewoRB::removeWezel(Wezel * x){
 
 	Wezel * W, * Y, * Z;
@@ -370,18 +369,19 @@ void DrzewoRB::removeWezel(Wezel * x){
 
 		if(Z != 0)
 			Z->setKolor('B');
-
-			//delete Y;
 }
-
-void DrzewoRB::remove(int Value){
+// usuniecie wartosci z drzewa
+bool DrzewoRB::remove(int Value){
 
 	Wezel *tmp; 
 	
 	tmp = wyszukaj(Value);
 
-	if(tmp != 0)
+	if(tmp != 0){
 		removeWezel(tmp);
+		return true;
+	}
+	return false;
 }
 
 

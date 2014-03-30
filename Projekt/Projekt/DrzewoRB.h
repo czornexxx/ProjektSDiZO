@@ -2,6 +2,7 @@
 #include "Biblioteki.h"
 
 using namespace std;
+// Wezly zawieraja wskaŸniki do potomków, kolor, oraz wskaŸnik na ojca
 
 class Wezel {
 
@@ -122,21 +123,16 @@ public:
 			kolor = Kolor;
 			return true; 
 		}
-
 		return false;
 	}
-
-
 };
-
-
 
 class DrzewoRB
 {
 private: 
 	Wezel *korzen;
 	string cr,cl,cp;			  // £añcuchy do znaków ramek
-	HANDLE hOut;
+	HANDLE hOut;				  // uchwyt do konsoli, aby umo¿liwiæ zmianê kolorów
 
 public:
 	DrzewoRB(void);
@@ -147,7 +143,7 @@ public:
 	Wezel * nastepnik(Wezel * w);
 	Wezel * minWezel(Wezel *w);
 	void removeWezel(Wezel *x);
-	void remove(int Value);
+	bool remove(int Value);
 	void wyswietl();
 	void rotacjaLewo(Wezel *A);
 	void rotacjaPrawo(Wezel *A);

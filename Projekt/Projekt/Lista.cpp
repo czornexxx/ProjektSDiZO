@@ -5,7 +5,6 @@ Lista::Lista(void)
 	size = 0;
 }
 
-
 Lista::~Lista(void)
 {
 }
@@ -30,7 +29,7 @@ void Lista::add(int value){
 
 int Lista::getSize(){
 	
-	return size;
+	return size;		// zwracanie rozmiaru (ilosci elementow w liscie)
 }
 
 int Lista::getValue(int index){
@@ -38,17 +37,15 @@ int Lista::getValue(int index){
 	int tmpWartosc = 0;
 	Element *tmpWskaznik = glowa;
 	
-	if(index > 0 && index <= size)				// sprawdzenie indexu
+	if(index > 0 && index <= size)					// sprawdzenie indexu
 
 	
 	for(int i=1; i<= size; i++){
 
 		if(i == index){							    // jesli ten nr. to daj wartosc
-
 			tmpWartosc = tmpWskaznik->getValue();
 			break;
 		}		
-		
 		tmpWskaznik = tmpWskaznik->getWskaznik();	// przeskakuj po elementach listy
 	}
 
@@ -62,16 +59,15 @@ void Lista::wyswietl(){
 
 	for(int i=0; i<size; i++){
 		std::cout << tmpwsk->getValue() << std::endl;
-		tmpwsk = tmpwsk->getWskaznik();
+		tmpwsk = tmpwsk->getWskaznik();				// przesuwanie po kolejnych elementach listy
 	}
-
 }
 
 bool Lista::add(int value, int idx){
 	
 	if(size == 0){
 		if(idx == 0 ){
-			add(value);
+			add(value);			// jeœli to jest 1 element to dodaj poprzez funkcje dodaj
 			return true;
 		}
 		return false;
@@ -80,7 +76,7 @@ bool Lista::add(int value, int idx){
 
 		if(idx == 0){
 			
-			Element *nowy = new Element(value);
+			Element *nowy = new Element(value);		// utworzenie elementu oraz ustawienie g³owy
 			glowa = nowy;
 			glowa->setWskaznik(ogon);
 			size ++;
@@ -88,7 +84,7 @@ bool Lista::add(int value, int idx){
 		}
 		else if(idx == 1){
 
-			Element *nowy = new Element(value);
+			Element *nowy = new Element(value);		// utowrzenie elementu oraz utworzenie ogona
 			ogon = nowy;
 			glowa->setWskaznik(ogon);
 			size ++;
@@ -99,13 +95,13 @@ bool Lista::add(int value, int idx){
 
 	if(idx == 0){
 
-		Element *nowy = new Element(value);
+		Element *nowy = new Element(value);		// utorzenie elementu, przypisanie wskaŸników
 		nowy->setWskaznik(glowa);
 		glowa = nowy;
 		size ++;
 		return true;
 	}
-
+	// funkcja wyszukuj¹ca i wstawiaj¹ca w odpowiednie miejsce w liœcie
 	if(idx <=0 || idx > size)
 		return false;
 	idx --;
@@ -121,10 +117,16 @@ bool Lista::add(int value, int idx){
 		tmpWskaznik = tmpWskaznik->getWskaznik();
 	}
 
-	nowy->setWskaznik(tmpWskaznik->getWskaznik());		// zapsanie wskaznika do nowego elementu
-	tmpWskaznik->setWskaznik(nowy);		                // ustawienie wsk elementu na nowy
-	
-	size ++;											// zwiekszenie rozmiaru listy
+	if(tmpWskaznik == ogon){
+		add(value);
+	}
+	else{
+		nowy->setWskaznik(tmpWskaznik->getWskaznik());		// zapsanie wskaznika do nowego elementu
+		tmpWskaznik->setWskaznik(nowy);		                // ustawienie wsk elementu na nowy
+		size ++;
+	}
+
+											// zwiekszenie rozmiaru listy
 
 	return true;
 }
@@ -224,6 +226,10 @@ bool Lista::remove(int value){
 			size --;
 			return true;
 		}
+		tmp0->setWskaznik(tmp1->getWskaznik());
+		delete tmp1;
+		size --;
+		return true;
 	}
 	else{
 		tmp0->setWskaznik(tmp1->getWskaznik());
@@ -242,7 +248,7 @@ Element * Lista::sprawdz(int value){
 
 	for(int i=0; i<size; i++){
 
-		if((tmpWskaznik->getValue()) == value){
+		if((tmpWskaznik->getValue()) == value){		// wyszukiwanie elementu i zwrócenie wskaŸnika na element
 			
 			return tmpWskaznik;
 		}
@@ -252,4 +258,22 @@ Element * Lista::sprawdz(int value){
 
 	return 0;
 }
+// funkcja zwraca na której pozycji znajduje siê dany element w liœcie.
+int Lista::getNrElementu(int value){
 
+	int nr = -1;
+	Element *tmpWskaznik;
+	tmpWskaznik = glowa;
+
+	for(int i=0; i<size; i++){
+
+		if((tmpWskaznik->getValue()) == value){
+			
+			nr = (i+1);
+			break;
+		}
+		tmpWskaznik = tmpWskaznik->getWskaznik();
+	}
+
+	return nr;
+}
