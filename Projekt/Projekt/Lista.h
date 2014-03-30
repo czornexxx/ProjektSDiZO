@@ -1,5 +1,6 @@
 #pragma once
-
+// elementy cz¹stkowe listy zawieraj¹ wskaŸnik na nastêpny element.
+// Lista jednokierunkowa z g³ow¹ oraz ogonem.
 class Element{
 
 private:	
@@ -56,6 +57,7 @@ public:
 	bool add(int value, int idx);
 	bool removeIndex(int idx);
 	bool remove(int value);
+	int getNrElementu(int value);
 	Element * sprawdz(int value);
 	int getSize();
 	int getValue(int index);

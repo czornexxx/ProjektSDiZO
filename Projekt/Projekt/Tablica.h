@@ -18,10 +18,9 @@ public:
 	int getValue(int idx);
 	int getSize();
 	bool removeIndex(int idx);
-	void remove(int value);
+	bool remove(int value);
 	bool sprawdz(int Value);
 	int getPozycja(int Value);
 	void wyswietl();
-	void wczytaj();
 };
 

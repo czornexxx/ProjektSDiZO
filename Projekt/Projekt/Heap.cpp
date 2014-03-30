@@ -1,16 +1,15 @@
 #include "Biblioteki.h"
 
 Heap::Heap(void)
-{   size = 1;
-tab = new int[size];
-	
+{  
+	size = 0;
+	tab = new int[size];
 }
 
 
 Heap::~Heap(void)
 {
 	delete []tab;
-	
 }
 
 

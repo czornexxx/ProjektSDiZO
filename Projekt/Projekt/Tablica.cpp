@@ -14,23 +14,23 @@ Tablica::~Tablica(void)
 
 void Tablica::add(int Value){
 
-	int *tmp = new int[size + 1];
+	int *tmp = new int[size + 1];	// utworzenie nowej wiêkszej tablicy
 
-	for(int i=0; i<size; i++)
+	for(int i=0; i<size; i++)		// przekopiowanie danych
 		tmp[i] = tablica[i];
 
-	delete[] tablica;
+	delete[] tablica;				// usuniecie mniejszej tablicy
 
-	tmp[size] = Value;
+	tmp[size] = Value;				// wstawienie wartosci na koniec
 	
-	tablica = tmp;
+	tablica = tmp;					// podstawienie pod g³ówny wskaŸnik nowej tablicy
 
-	size ++;
+	size ++;						// zwiekszenie ilosci elementow
 }
 
 bool Tablica::add(int Value, int idx){
 
-	idx --;			// -1 bo tablica od 0
+	idx --;								// -1 bo tablica od 0
 
 	if(idx < 0 || idx > size+1)			// sprawdzenie czy index jest w tablicy
 		return false;
@@ -51,14 +51,13 @@ bool Tablica::add(int Value, int idx){
 	
 	tablica = tmp;
 
-
 	return true;
 }
 
 int Tablica::getValue(int idx){
 
 	if(idx > 0 && idx <= size)
-		return tablica[idx];
+		return tablica[idx];		// zwracanie wartoœci z podanego indeksu
 	return NULL;
 }
 
@@ -94,13 +93,15 @@ bool Tablica::removeIndex(int idx){
 	return false;
 }
 
-void Tablica::remove(int value){
+bool Tablica::remove(int value){
 
-	int tmp = getPozycja(value);
-	if(tmp != NULL)
-		removeIndex(tmp);
+	int tmp = getPozycja(value);	// zwrocenie pozycji pod ktora wystepuje wartosc
+	if(tmp != NULL){
+		removeIndex(tmp);			// usuniecie pozycji
+		return true;
+	}
+	return false;
 }
-
 
 void Tablica::wyswietl(){
 
@@ -128,35 +129,3 @@ int Tablica::getPozycja(int Value){
 
 	return NULL;	
 }
-
-void Tablica::wczytaj()
-{
-
-	int poprzedniRozmiar=size;
-	fstream plik;
-	string sizee;
-	
-	plik.open( "liczby.txt" );
-	getline(plik, sizee);
-	size= poprzedniRozmiar + (atoi(sizee.c_str()));
-
-	int *tab = new int[size];
-	for(int i=0; i< poprzedniRozmiar; i++)
-		tab[i] = tablica[i];
-
-	delete[] tablica;
-
-	tablica = tab;
-
-	int i = poprzedniRozmiar;
-
-	while( !plik.eof() )
-	{
-   
-		plik>>tablica[i];
-		i++;
-	}
-
-plik.close();
-}
-
