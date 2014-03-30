@@ -1,39 +1,42 @@
 #include "Biblioteki.h"
 
-Heap::Heap(void)
+Heap::Heap(void) //konstrukote bezargumentowy ustalający początkowe parametry obiektu
 {  
 	size = 0;
 	tab = new int[size];
 }
 
 
-Heap::~Heap(void)
+Heap::~Heap(void) //destruktor usuwający dynamiczną tablice
 {
 	delete []tab;
 }
 
 
 
-void Heap::Add(int Value)
-{   int a, tmp;
-
+void Heap::Add(int Value) //funkcja do dodawania wartości do kopca, argumentem jest wartość wstawiana do kopca
+{   
+	int a, tmp;
+	
 	size++;
-	int *tab1=new int[size];
-	for(int i = 0; i<size-1; i++)
-	tab1[i]=tab[i];
-	tab1[size-1] = Value;
-	delete []tab;
-	tab = new int[size];
-	for(int i =0; i<size; i++)
+	int *tab1=new int[size];//tworzymy tablicę o jeden większą w celu przechowywania poprzednich wartości wraz z nową
+	
+	for(int i = 0; i<size-1; i++)//przepisanie starej tablicy
+		tab1[i]=tab[i];
+	
+	tab1[size-1] = Value; //dopisanie nowej wartości
+	delete []tab; //usuwamy stara tablice
+	tab = new int[size];//tworzymy główną tablice na nowo już powiększoną
+	for(int i =0; i<size; i++)//przepisujemy wartości z tablicy pomocniczej do głównej
 	tab[i]=tab1[i];
-	delete []tab1;
+	delete []tab1;//kasujemy tablice pomociczą
 
 	a=size-1;
 	
 
-	while(a > 0 && tab[a] > tab[(a-1)/2])
-	{
-		tmp = tab[a];
+	while(a > 0 && tab[a] > tab[(a-1)/2])//sprawdzanie czy są spelnione własności kopca
+	{                                    //tj. sprawdzamy czy potomek nie jest większy od ojca 
+		tmp = tab[a];                // jeśli tak następuje zamiana ich miejsc
 		tab[a] = tab[(a-1)/2];
 		tab[(a-1)/2] = tmp;
 		a = (a-1)/2;
@@ -41,43 +44,43 @@ void Heap::Add(int Value)
 }
 
 
-void Heap::BuildHeap()
-{
+void Heap::BuildHeap()//funkcja do przywracania własności kopca, korzystamy z niej gdy mamy już załadowanie wartości do tablicy
+{                     //i należy je tylko odpowiednio poukładać
 	for( int i = size/2; i>=0; i--)
 		Heapify(i);
 
 }
 
-void Heap::Heapify(int i)
+void Heap::Heapify(int i)//naprawianie struktury kopca
 {
-	int left = 2*i+1;
-	int right = 2*i+2;
+	int left = 2*i+1; //wartosc lewego syna
+	int right = 2*i+2;// wartosc prawego syna
 	int largest,tmp;
 
 
 	if ( left <= size && tab[left] > tab[i])
 		largest = left;
-	else 
-		largest = i;
+	else 							//sprawdzamy czy spełnione są warunki kopca
+		largest = i;					//dokonujemy odpowiednich przeksztalcen
 	if ( right <= size && tab[right] > tab[largest])
 		largest = right;
 	if ( largest != i)
 	{
-		tmp = tab[i];
-		tab[i] = tab[largest];
+		tmp = tab[i];		//zamiana
+		tab[i] = tab[largest];  //miejscami węzłów
 		tab[largest] = tmp;
-		Heapify(largest);
+		Heapify(largest);//wywołujemy rekurencyjnie funkcje
 	}
 
 }
 
-void Heap::RemoveRoot()
+void Heap::RemoveRoot()//usuwanie korzenia z kopca
 {
 	int i,j,v;
 
   if(size--)
   {
-    v = tab[size];
+    v = tab[size];//zapamietujemy ostani lisc kopca
 
     i = 0;
     j = 1;
@@ -89,7 +92,7 @@ void Heap::RemoveRoot()
       tab[i] = tab[j];
       i = j;
       j = 2 * j + 1;
-    }
+    }//wstawiamy w miejsce naszego korzenia ostatni lisc i przywracamy własnosci kopca
 
     tab[i] = v;
   }
@@ -97,7 +100,7 @@ void Heap::RemoveRoot()
 }
 
 
-void Heap::ReadFromFile()
+void Heap::ReadFromFile()// funkcja do bezpośredniego wczytania liczb z pliku do tablicy kopca
 {
 	fstream plik;
 	string sizee;
@@ -105,7 +108,7 @@ void Heap::ReadFromFile()
 	
 	plik.open( "liczby.txt" );
 	getline(plik, sizee);
-	size= (atoi(sizee.c_str()));
+	size= (atoi(sizee.c_str()));//wczytujemy pierwsza linie pliku która jest romiarem tablicy
 
 	int *tablica = new int[size];
 	for(int i=0; i< size; i++)
@@ -120,7 +123,7 @@ void Heap::ReadFromFile()
 	while( !plik.eof() )
 	{
    
-		plik>>tab[i];
+		plik>>tab[i];//wczytanie kolejnych wartosci z pliku do tablicy
 		i++;
 	}
 
@@ -128,7 +131,7 @@ plik.close();
 
 }
 
-void Heap::Write(string sp, string sn, int v)
+void Heap::Write(string sp, string sn, int v) //funkcja rysująca kopiec na ekranie
 {
 	string s;
 	cr = cl = cp = "  ";
@@ -153,57 +156,56 @@ void Heap::Write(string sp, string sn, int v)
 }
 
 
-bool Heap::Search(int Value)
+bool Heap::Search(int Value)//wyszukiwanie wartości Value w kopcu
 {
 	for( int i = size; i>=0; i--)
 	{
-		if(tab[0] == Value){
-			return true;}
+		if(tab[0] == Value){//sprawdzamy czy nasz korzen zapisany w tab[0] to szukana wartośc
+			return true;}//jesli tak, przerywamy funkcje, jeśli nie usuwamy korzen i szukamy dalej
 		RemoveRoot();
 	}
 	return false;
 }
 
-void Heap::Remove(int Value)
+void Heap::Remove(int Value)//funkcja do usuwania wartosci Value
 {
 	sizebuff=0;
-	buff=new int[sizebuff];
+	buff=new int[sizebuff]; //tworzymy tablice pomocnicza do przechowywania ściągniętych z kopca wartości
 	for( int i = size; i>=0; i--)
 	{
 		if(tab[0] == Value)
-		{RemoveRoot();break;
-		}
+		{RemoveRoot();break;//sprawdzamy czy korzeń jest naszą wartością do usunięcia
+		}                   //jeśli tak to usuwamy go i kończymy
 		else
-			{AddBuff(tab[0]);
+			{AddBuff(tab[0]);//jeśli nie to zapisujemy jego wartość w tablicy pomocniczej i usuwamy go
 			RemoveRoot();
 		}
 
 		}
-	for (int i =sizebuff; i>0; i--)
+	for (int i =sizebuff; i>0; i--)//po znalezieniu i usunieciu wartosci przepisujemy liczby z tablicy omocniczego do głownej
 	{
 		Add(buff[i-1]);
 	}
 	
-	delete []buff;
+	delete []buff;//usuwamy tablice pomocincza
 	
 }
 
-void Heap::AddBuff(int Value)
+void Heap::AddBuff(int Value)//funkcja do zapisywania wartości z kopca do tablicy pomocniczej
 {
 	int *tmp;
-	//sizebuff=sizebuff + 1;
-	//a = sizebuff-1;
-	tmp = new int[sizebuff + 1];
+	
+	tmp = new int[sizebuff + 1];//tablica pomocnicza dynamiczne zwiększana
 
 	for(int i=0; i<sizebuff; i++)
-		tmp[i] = buff[i];
+		tmp[i] = buff[i];//przepisanie wartości do tmp z buff
 
 	delete[] buff;
 
-	tmp[sizebuff] = Value;
+	tmp[sizebuff] = Value;//dopisanie nowej wartosci
 	
 	buff = tmp;
 
-	sizebuff ++;
+	sizebuff ++;//zwiekszenie rozmiaru tablicy pomocniczej
 		
 }
