@@ -885,7 +885,7 @@ void wyszukajWKopcu(int ilosc){
 
 	wczytajZPliku(nazwaOdczyt); 
 
-	for(int i=0; i<5000; i++){
+	for(int i=0; i<100; i++){
 
 		{
 			Heap kopiec;
@@ -896,7 +896,7 @@ void wyszukajWKopcu(int ilosc){
 			mieszaj();			// permutuje tablice danych
 			
 			czas.start1(); 
-				kopiec.Search(liczby[rand() % 9999]);  // wyszukiwanie losowo wybranego elementu
+				kopiec.Search(liczby[rand() % ilosc]);  // wyszukiwanie losowo wybranego elementu
 			czas.stop1();
 			cout << i << endl; 
 			czasy[i] = czas.zwrocCzas();
@@ -911,188 +911,194 @@ void wyszukajWKopcu(int ilosc){
 
 void test(){
 
-	dodajNaKoniecTablicy(100);
-	dodajNaKoniecTablicy(1000);
-	dodajNaKoniecTablicy(5000);
-	dodajNaKoniecTablicy(10000);
-	dodajNaKoniecTablicy(20000);
-
-	cout << "koniec dodawania na koniec tablicy" << endl;
-
-	dodajNaPoczatekTablicy(100);
-	dodajNaPoczatekTablicy(1000);
-	dodajNaPoczatekTablicy(5000);
-	dodajNaPoczatekTablicy(10000);
-	dodajNaPoczatekTablicy(20000);
-
-	cout << "Zakoñczone dodawanie na poczatek tablicy" << endl;
-
-	dodajLosowoDoTablicy(100);
-	dodajLosowoDoTablicy(1000);
-	dodajLosowoDoTablicy(5000);
-	dodajLosowoDoTablicy(10000);
-	dodajLosowoDoTablicy(20000);
-
-		cout << "Zakoñczone dodawanie losowe tablicy" << endl;
-
-	usunLosowoZTablicy(100);
-	usunLosowoZTablicy(1000);
-	usunLosowoZTablicy(5000);
-	usunLosowoZTablicy(10000);
-	usunLosowoZTablicy(20000);
-
-		cout << "Zakoñczone usuwanie losowe z tablicy" << endl;
-
-	usunZPoczatkuTablicy(100);
-	usunZPoczatkuTablicy(1000);
-	usunZPoczatkuTablicy(5000);
-	usunZPoczatkuTablicy(10000);
-	usunZPoczatkuTablicy(20000);
-
-		cout << "Zakoñczone usuwanie z poczatek tablicy" << endl;
-
-	usunZKoncaTablicy(100);
-		cout << "Koniec 100 elementow" << endl;
-	usunZKoncaTablicy(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	usunZKoncaTablicy(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	usunZKoncaTablicy(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	usunZKoncaTablicy(20000);
-		cout << "Koniec 20000 elementow" << endl;
-
-			cout << "Zakoñczone usuwanie z konca tablicy" << endl;
-
-	wyszukajWTablicy(100);
-		cout << "Koniec 100 elementow" << endl;
-	wyszukajWTablicy(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	wyszukajWTablicy(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	wyszukajWTablicy(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	wyszukajWTablicy(20000);
-		cout << "Koniec 20000 elementow" << endl;
-
-			cout << "Zakoñczone operacje na tablicy tablicy" << endl;
-//	**********************	KONIEC TABLICY *****************	
-
-	
-	dodajNaKoniecListy(100);
-		cout << "Koniec 100 elementow" << endl;
-	dodajNaKoniecListy(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	dodajNaKoniecListy(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	dodajNaKoniecListy(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	dodajNaKoniecListy(20000);
-		cout << "Koniec 20000 elementow" << endl;
-
-			cout << "Zakoñczone dodawanie na koniec listy" << endl;
-
-	dodajNaPoczatekListy(100);
-		cout << "Koniec 100 elementow" << endl;
-	dodajNaPoczatekListy(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	dodajNaPoczatekListy(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	dodajNaPoczatekListy(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	dodajNaPoczatekListy(20000);
-		cout << "Koniec 20000 elementow" << endl;
-
-	dodajLosowoDoListy(100);
-		cout << "Koniec 100 elementow" << endl;
-	dodajLosowoDoListy(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	dodajLosowoDoListy(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	dodajLosowoDoListy(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	dodajLosowoDoListy(20000);
-		cout << "Koniec 20000 elementow" << endl;
-
-	UsunZKoncaListy(100);
-		cout << "Koniec 100 elementow" << endl;
-	UsunZKoncaListy(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	UsunZKoncaListy(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	UsunZKoncaListy(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	UsunZKoncaListy(20000);
-		cout << "Koniec 20000 elementow" << endl;
-
-	UsunZPoczatekListy(100);
-		cout << "Koniec 100 elementow" << endl;
-	UsunZPoczatekListy(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	UsunZPoczatekListy(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	UsunZPoczatekListy(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	UsunZPoczatekListy(20000);
-		cout << "Koniec 20000 elementow" << endl;
-
-	UsunLosowoZListy(100);
-		cout << "Koniec 100 elementow" << endl;
-	UsunLosowoZListy(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	UsunLosowoZListy(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	UsunLosowoZListy(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	UsunLosowoZListy(20000);
-		cout << "Koniec 20000 elementow" << endl;
-
-	wyszukajWLiscie(100);
-		cout << "Koniec 100 elementow" << endl;
-	wyszukajWLiscie(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	wyszukajWLiscie(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	wyszukajWLiscie(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	wyszukajWLiscie(20000);
-		cout << "Koniec 20000 elementow" << endl;
+//	dodajNaKoniecTablicy(100);
+//	dodajNaKoniecTablicy(1000);
+//	dodajNaKoniecTablicy(5000);
+//	dodajNaKoniecTablicy(10000);
+//	dodajNaKoniecTablicy(20000);
+//
+//	cout << "koniec dodawania na koniec tablicy" << endl;
+//
+//	dodajNaPoczatekTablicy(100);
+//	dodajNaPoczatekTablicy(1000);
+//	dodajNaPoczatekTablicy(5000);
+//	dodajNaPoczatekTablicy(10000);
+//	dodajNaPoczatekTablicy(20000);
+//
+//	cout << "Zakoñczone dodawanie na poczatek tablicy" << endl;
+//
+//	dodajLosowoDoTablicy(100);
+//	dodajLosowoDoTablicy(1000);
+//	dodajLosowoDoTablicy(5000);
+//	dodajLosowoDoTablicy(10000);
+//	dodajLosowoDoTablicy(20000);
+//
+//		cout << "Zakoñczone dodawanie losowe tablicy" << endl;
+//
+//	usunLosowoZTablicy(100);
+//	usunLosowoZTablicy(1000);
+//	usunLosowoZTablicy(5000);
+//	usunLosowoZTablicy(10000);
+//	usunLosowoZTablicy(20000);
+//
+//		cout << "Zakoñczone usuwanie losowe z tablicy" << endl;
+//
+//	usunZPoczatkuTablicy(100);
+//	usunZPoczatkuTablicy(1000);
+//	usunZPoczatkuTablicy(5000);
+//	usunZPoczatkuTablicy(10000);
+//	usunZPoczatkuTablicy(20000);
+//
+//		cout << "Zakoñczone usuwanie z poczatek tablicy" << endl;
+//
+//	usunZKoncaTablicy(100);
+//		cout << "Koniec 100 elementow" << endl;
+//	usunZKoncaTablicy(1000);
+//		cout << "Koniec 1000 elementow" << endl;
+//	usunZKoncaTablicy(5000);
+//		cout << "Koniec 5000 elementow" << endl;
+//	usunZKoncaTablicy(10000);
+//		cout << "Koniec 10000 elementow" << endl;
+//	usunZKoncaTablicy(20000);
+//		cout << "Koniec 20000 elementow" << endl;
+//
+//			cout << "Zakoñczone usuwanie z konca tablicy" << endl;
+//
+//	wyszukajWTablicy(100);
+//		cout << "Koniec 100 elementow" << endl;
+//	wyszukajWTablicy(1000);
+//		cout << "Koniec 1000 elementow" << endl;
+//	wyszukajWTablicy(5000);
+//		cout << "Koniec 5000 elementow" << endl;
+//	wyszukajWTablicy(10000);
+//		cout << "Koniec 10000 elementow" << endl;
+//	wyszukajWTablicy(20000);
+//		cout << "Koniec 20000 elementow" << endl;
+//
+//			cout << "Zakoñczone operacje na tablicy tablicy" << endl;
+////	**********************	KONIEC TABLICY *****************	
+//
+//	
+//	dodajNaKoniecListy(100);
+//		cout << "Koniec 100 elementow" << endl;
+//	dodajNaKoniecListy(1000);
+//		cout << "Koniec 1000 elementow" << endl;
+//	dodajNaKoniecListy(5000);
+//		cout << "Koniec 5000 elementow" << endl;
+//	dodajNaKoniecListy(10000);
+//		cout << "Koniec 10000 elementow" << endl;
+//	dodajNaKoniecListy(20000);
+//		cout << "Koniec 20000 elementow" << endl;
+//
+//			cout << "Zakoñczone dodawanie na koniec listy" << endl;
+//
+//	dodajNaPoczatekListy(100);
+//		cout << "Koniec 100 elementow" << endl;
+//	dodajNaPoczatekListy(1000);
+//		cout << "Koniec 1000 elementow" << endl;
+//	dodajNaPoczatekListy(5000);
+//		cout << "Koniec 5000 elementow" << endl;
+//	dodajNaPoczatekListy(10000);
+//		cout << "Koniec 10000 elementow" << endl;
+//	dodajNaPoczatekListy(20000);
+//		cout << "Koniec 20000 elementow" << endl;
+//
+//	dodajLosowoDoListy(100);
+//		cout << "Koniec 100 elementow" << endl;
+//	dodajLosowoDoListy(1000);
+//		cout << "Koniec 1000 elementow" << endl;
+//	dodajLosowoDoListy(5000);
+//		cout << "Koniec 5000 elementow" << endl;
+//	dodajLosowoDoListy(10000);
+//		cout << "Koniec 10000 elementow" << endl;
+//	dodajLosowoDoListy(20000);
+//		cout << "Koniec 20000 elementow" << endl;
+//
+//	UsunZKoncaListy(100);
+//		cout << "Koniec 100 elementow" << endl;
+//	UsunZKoncaListy(1000);
+//		cout << "Koniec 1000 elementow" << endl;
+//	UsunZKoncaListy(5000);
+//		cout << "Koniec 5000 elementow" << endl;
+//	UsunZKoncaListy(10000);
+//		cout << "Koniec 10000 elementow" << endl;
+//	UsunZKoncaListy(20000);
+//		cout << "Koniec 20000 elementow" << endl;
+//
+//	UsunZPoczatekListy(100);
+//		cout << "Koniec 100 elementow" << endl;
+//	UsunZPoczatekListy(1000);
+//		cout << "Koniec 1000 elementow" << endl;
+//	UsunZPoczatekListy(5000);
+//		cout << "Koniec 5000 elementow" << endl;
+//	UsunZPoczatekListy(10000);
+//		cout << "Koniec 10000 elementow" << endl;
+//	UsunZPoczatekListy(20000);
+//		cout << "Koniec 20000 elementow" << endl;
+//
+//	UsunLosowoZListy(100);
+//		cout << "Koniec 100 elementow" << endl;
+//	UsunLosowoZListy(1000);
+//		cout << "Koniec 1000 elementow" << endl;
+//	UsunLosowoZListy(5000);
+//		cout << "Koniec 5000 elementow" << endl;
+//	UsunLosowoZListy(10000);
+//		cout << "Koniec 10000 elementow" << endl;
+//	UsunLosowoZListy(20000);
+//		cout << "Koniec 20000 elementow" << endl;
+//
+//	wyszukajWLiscie(100);
+//		cout << "Koniec 100 elementow" << endl;
+//	wyszukajWLiscie(1000);
+//		cout << "Koniec 1000 elementow" << endl;
+//	wyszukajWLiscie(5000);
+//		cout << "Koniec 5000 elementow" << endl;
+//	wyszukajWLiscie(10000);
+//		cout << "Koniec 10000 elementow" << endl;
+//	wyszukajWLiscie(20000);
+//		cout << "Koniec 20000 elementow" << endl;
 
  //********************************* Koniec Listy **************************
-	cout << "Dodawanie Start: " << endl;
+	//cout << "Dodawanie Start: " << endl;
 
-	dodajDoKopca(100);
-		cout << "Koniec 100 elementow" << endl;
-	dodajDoKopca(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	dodajDoKopca(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	dodajDoKopca(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	dodajDoKopca(20000);
+	//dodajDoKopca(100);
+	//	cout << "Koniec 100 elementow" << endl;
+	//dodajDoKopca(1000);
+	//	cout << "Koniec 1000 elementow" << endl;
+	//dodajDoKopca(5000);
+	//	cout << "Koniec 5000 elementow" << endl;
+	//dodajDoKopca(10000);
+	//	cout << "Koniec 10000 elementow" << endl;
+	//dodajDoKopca(20000);
+	//	cout << "Koniec 20000 elementow" << endl;
+
+	//cout << "Usuwanie Start: " << endl;
+
+	//usunZKopca(100);
+	//	cout << "Koniec 100 elementow" << endl;
+	//usunZKopca(1000);
+	//	cout << "Koniec 1000 elementow" << endl;
+	//usunZKopca(5000);
+	//	cout << "Koniec 5000 elementow" << endl;
+	//usunZKopca(10000);
+	//	cout << "Koniec 10000 elementow" << endl;
+	//usunZKopca(20000);
+	//	cout << "Koniec 20000 elementow" << endl;
+
+	//cout << "Wyszukiwanie Start: " << endl;
+	//wyszukajWKopcu(100);	
+	//cout << "Koniec 100" << endl;
+	//wyszukajWKopcu(1000);
+	//	cout << "Koniec 1000" << endl;
+	//wyszukajWKopcu(5000);
+	//	cout << "Koniec 5000" << endl;
+	//wyszukajWKopcu(10000);
+	//	cout << "Koniec 10000 elementow" << endl;
+	wyszukajWKopcu(20000);
 		cout << "Koniec 20000 elementow" << endl;
-
-	cout << "Usuwanie Start: " << endl;
-
-	usunZKopca(100);
-		cout << "Koniec 100 elementow" << endl;
-	usunZKopca(1000);
-		cout << "Koniec 1000 elementow" << endl;
-	usunZKopca(5000);
-		cout << "Koniec 5000 elementow" << endl;
-	usunZKopca(10000);
-		cout << "Koniec 10000 elementow" << endl;
-	usunZKopca(20000);
-		cout << "Koniec 20000 elementow" << endl;
-
-	cout << "Wyszukiwanie Start: " << endl;
-
-	wyszukajWKopcu(10000);
-		cout << "Koniec 5000 elementow" << endl;
-
 
 // ******************************** Koniec Kopca ***************************
-	dodajDoDrzewa(100);
+	/*dodajDoDrzewa(100);
 		cout << "Koniec 100 elementow" << endl;
 	dodajDoDrzewa(1000);
 		cout << "Koniec 1000 elementow" << endl;
@@ -1125,7 +1131,7 @@ void test(){
 	wyszukajWDrzewie(10000);
 		cout << "Koniec 10000 elementow" << endl;
 	wyszukajWDrzewie(20000);
-		cout << "Koniec 20000 elementow" << endl;
+		cout << "Koniec 20000 elementow" << endl;*/
 	
 }
 
