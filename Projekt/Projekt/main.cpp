@@ -1085,15 +1085,15 @@ void test(){
 	//usunZKopca(20000);
 	//	cout << "Koniec 20000 elementow" << endl;
 
-	//cout << "Wyszukiwanie Start: " << endl;
-	//wyszukajWKopcu(100);	
-	//cout << "Koniec 100" << endl;
-	//wyszukajWKopcu(1000);
-	//	cout << "Koniec 1000" << endl;
-	//wyszukajWKopcu(5000);
-	//	cout << "Koniec 5000" << endl;
-	//wyszukajWKopcu(10000);
-	//	cout << "Koniec 10000 elementow" << endl;
+	cout << "Wyszukiwanie Start: " << endl;
+	wyszukajWKopcu(100);	
+	cout << "Koniec 100" << endl;
+	wyszukajWKopcu(1000);
+		cout << "Koniec 1000" << endl;
+	wyszukajWKopcu(5000);
+		cout << "Koniec 5000" << endl;
+	wyszukajWKopcu(10000);
+		cout << "Koniec 10000 elementow" << endl;
 	wyszukajWKopcu(20000);
 		cout << "Koniec 20000 elementow" << endl;
 
